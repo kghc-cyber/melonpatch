@@ -18,195 +18,172 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
-            padding: 0;
+        }
+
+        body {
             background-color: var(--honeydew-mist);
-            font-family: 'Inter', sans-serif; /* Base font */
+            font-family: 'Inter', sans-serif;
             color: var(--dark-sage);
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
         header {
             width: 100%;
-            padding: 50px 0 20px 0;
+            padding: 60px 0 30px 0;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
-        .logo {
+        /* Logo Styling - Prevents "Broken" look if file is missing */
+        .logo-container {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dark-sage);
+        }
+
+        .logo-img {
             max-width: 180px;
             height: auto;
-            mix-blend-mode: multiply; 
+            display: block;
         }
 
         .container {
             text-align: center;
             max-width: 600px;
             width: 90%;
+            flex: 1 0 auto; /* Pushes footer down */
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.8rem; /* Tightened spacing */
+            gap: 1rem;
             opacity: 0;
-            animation: luxuryFadeIn 2.5s ease-out forwards;
-        }
-
-        /* Consistent Serif Style */
-        h1, .clues, #status {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 400;
+            animation: luxuryFadeIn 1.5s ease-out forwards;
         }
 
         h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
             font-size: clamp(2.2rem, 8vw, 3.8rem);
             margin: 0;
             line-height: 1.1;
         }
 
-        /* Consistent Sans-Serif Caps Style */
-        .tagline, button, footer, input::placeholder {
+        .tagline {
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.4em;
             font-size: 0.7rem;
-        }
-
-        .tagline {
             color: var(--rind-green);
             margin-bottom: 2rem;
         }
 
         .clues {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-size: 1.15rem;
             line-height: 1.8;
             margin-bottom: 2.5rem;
             opacity: 0.85;
         }
 
-        .clues p {
-            margin: 4px 0;
-        }
+        .clues p { margin: 8px 0; }
 
         .email-section {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
         }
 
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
         input[type="email"] {
             width: 100%;
             background: transparent;
             border: none;
-            border-bottom: 1px solid var(--rind-green);
-            padding: 10px 0;
+            border-bottom: 1px solid rgba(134, 194, 139, 0.4);
+            padding: 12px 0;
             text-align: center;
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
             outline: none;
             color: var(--dark-sage);
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus {
+            border-bottom: 1px solid var(--rind-green);
+        }
+
+        input::placeholder {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.65rem;
+            opacity: 0.6;
         }
 
         button {
             background: transparent;
             border: none;
+            border-bottom: 1px solid var(--rind-green);
+            padding-bottom: 4px;
             cursor: pointer;
             color: var(--rind-green);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.75rem;
             font-weight: 600;
-            transition: all 0.3s;
-            margin-top: 10px;
+            transition: all 0.3s ease;
         }
 
         button:hover {
             color: var(--dark-sage);
-            letter-spacing: 0.45em;
+            border-bottom-color: var(--dark-sage);
+            letter-spacing: 0.35em;
         }
 
         #status {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-size: 1.2rem;
             margin-top: 20px;
             color: var(--rind-green);
             display: none;
         }
 
-        @keyframes luxuryFadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        footer {
+            flex-shrink: 0;
+            padding: 60px 0;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-size: 0.65rem;
+            color: var(--rind-green);
+            opacity: 0.5;
         }
 
-        footer {
-            margin-top: auto;
-            padding: 50px 0;
-            color: var(--rind-green);
-            opacity: 0.4;
+        @keyframes luxuryFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="logo.png" alt="MELONPATCH" class="logo">
-    </header>
-
-    <div class="container">
-        <h1>Stay Fresh. Stay You.</h1>
-        <div class="tagline">An Intimate Evolution</div>
-
-        <div class="clues">
-            <p>Weightless moisture protection.</p>
-            <p>Designed for your closest layers.</p>
-            <p>Coming 2026.</p>
+        <div class="logo-container">
+            <img src="logo.png" alt="MelonPatch" class="logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='MelonPatch';">
         </div>
-
-        <div class="email-section">
-            <form id="contact-form" action="https://formspree.io/f/xkoqkybk" method="POST">
-                <input type="email" name="email" id="email" placeholder="YOUR EMAIL ADDRESS" required>
-                <button type="submit" id="submit-btn">Join the Inner Circle</button>
-            </form>
-            <div id="status">Thank you for joining.</div>
-        </div>
-    </div>
-
-    <footer>Est. 2026</footer>
-
-    <script>
-        const form = document.getElementById("contact-form");
-        const status = document.getElementById("status");
-        const submitBtn = document.getElementById("submit-btn");
-
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault();
-            submitBtn.innerText = "SENDING...";
-            
-            const data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = "none";
-                    status.style.display = "block";
-                } else {
-                    submitBtn.innerText = "ERROR. TRY AGAIN.";
-                }
-            }).catch(error => {
-                submitBtn.innerText = "ERROR. TRY AGAIN.";
-            });
-        });
-    </script>
-
-</body>
-</html>
