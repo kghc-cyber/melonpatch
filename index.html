@@ -69,4 +69,114 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
             line-height: 2.2;
-            margin-bottom: 4
+            margin-bottom: 4rem;
+            opacity: 0.9;
+        }
+
+        .clues p {
+            margin: 5px 0;
+        }
+
+        /* Sophisticated Form Styling */
+        .email-section {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--rind-green);
+            padding: 12px 0;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            color: var(--dark-sage);
+            transition: border-color 0.4s ease;
+        }
+
+        input[type="email"]:focus {
+            border-bottom: 1px solid var(--sprout-green);
+        }
+
+        input::placeholder {
+            color: var(--rind-green);
+            opacity: 0.5;
+            letter-spacing: 0.1em;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.75rem;
+            margin-top: 30px;
+            cursor: pointer;
+            color: var(--rind-green);
+            font-weight: 600;
+            transition: color 0.3s, letter-spacing 0.3s;
+        }
+
+        button:hover {
+            color: var(--dark-sage);
+            letter-spacing: 0.35em;
+        }
+
+        @keyframes luxuryFadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--rind-green);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="melonpatch-logo.png" alt="MelonPatch" class="logo">
+        
+        <h1>Stay Fresh. Stay You.</h1>
+        <div class="tagline">An Intimate Evolution</div>
+
+        <div class="clues">
+            <p>Weightless moisture protection.</p>
+            <p>Designed for your closest layers.</p>
+            <p>Coming 2026.</p>
+        </div>
+
+        <div class="email-section">
+            <form action="https://formspree.io/f/xkoqkybk" method="POST">
+                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
+                <input type="text" name="_gotcha" style="display:none">
+                <button type="submit">Join the Inner Circle</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>Est. 2026</footer>
+
+</body>
+</html>
