@@ -27,23 +27,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh; /* Changed from height to min-height for mobile safety */
+            overflow-x: hidden;
         }
 
         .container {
             text-align: center;
             max-width: 600px;
-            padding: 20px;
+            width: 90%;
+            padding: 40px 20px;
             opacity: 0;
             animation: luxuryFadeIn 2.5s ease-out forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem; /* Consistent spacing between all elements */
         }
 
         .logo {
             max-width: 220px;
             height: auto;
-            margin-bottom: 3.5rem;
+            margin-bottom: 2rem;
             mix-blend-mode: multiply; 
+        }
+
+        .text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         h1 {
@@ -61,32 +72,32 @@
             letter-spacing: 0.5em;
             text-transform: uppercase;
             color: var(--rind-green);
-            margin: 1.2rem 0 3.5rem 0;
+            margin-bottom: 2.5rem;
             font-weight: 400;
         }
 
         .clues {
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
-            line-height: 2.2;
-            margin-bottom: 4rem;
+            line-height: 2;
+            margin-bottom: 3rem;
             opacity: 0.9;
         }
 
         .clues p {
-            margin: 5px 0;
+            margin: 8px 0;
         }
 
-        /* Sophisticated Form Styling */
         .email-section {
+            width: 100%;
             max-width: 320px;
-            margin: 0 auto;
         }
 
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 1rem;
         }
 
         input[type="email"] {
@@ -107,59 +118,57 @@
             border-bottom: 1px solid var(--sprout-green);
         }
 
-        input::placeholder {
-            color: var(--rind-green);
-            opacity: 0.5;
-            letter-spacing: 0.1em;
-        }
-
         button {
             background: transparent;
             border: none;
             text-transform: uppercase;
             letter-spacing: 0.3em;
             font-size: 0.75rem;
-            margin-top: 30px;
+            margin-top: 15px;
             cursor: pointer;
             color: var(--rind-green);
             font-weight: 600;
-            transition: color 0.3s, letter-spacing 0.3s;
+            transition: all 0.3s;
         }
 
         button:hover {
             color: var(--dark-sage);
             letter-spacing: 0.35em;
+            transform: translateY(-2px);
         }
 
         @keyframes luxuryFadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             font-size: 0.65rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--rind-green);
             opacity: 0.4;
         }
+
+        /* Mobile specific adjustments to prevent text overlap */
+        @media (max-height: 700px) {
+            .container { padding-top: 60px; padding-bottom: 100px; }
+            footer { position: relative; margin-top: 40px; bottom: 0; }
+            body { height: auto; overflow-y: auto; }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="melonpatch-logo.png" alt="MelonPatch" class="logo">
+        <img src="logo.png" alt="MelonPatch" class="logo">
         
-        <h1>Stay Fresh. Stay You.</h1>
-        <div class="tagline">An Intimate Evolution</div>
+        <div class="text-group">
+            <h1>Stay Fresh. Stay You.</h1>
+            <div class="tagline">An Intimate Evolution</div>
+        </div>
 
         <div class="clues">
             <p>Weightless moisture protection.</p>
