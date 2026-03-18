@@ -27,7 +27,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Changed from height to min-height for mobile safety */
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
@@ -41,20 +41,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem; /* Consistent spacing between all elements */
+            gap: 1.5rem;
         }
 
         .logo {
-            max-width: 220px;
+            max-width: 200px;
             height: auto;
             margin-bottom: 2rem;
             mix-blend-mode: multiply; 
-        }
-
-        .text-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
         }
 
         h1 {
@@ -72,25 +66,21 @@
             letter-spacing: 0.5em;
             text-transform: uppercase;
             color: var(--rind-green);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
+            margin: 0.5rem 0 2rem 0;
         }
 
         .clues {
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
             line-height: 2;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
-        }
-
-        .clues p {
-            margin: 8px 0;
         }
 
         .email-section {
             width: 100%;
             max-width: 320px;
+            min-height: 120px; /* Prevents layout jump after submission */
         }
 
         form {
@@ -111,11 +101,6 @@
             font-size: 0.9rem;
             outline: none;
             color: var(--dark-sage);
-            transition: border-color 0.4s ease;
-        }
-
-        input[type="email"]:focus {
-            border-bottom: 1px solid var(--sprout-green);
         }
 
         button {
@@ -131,10 +116,16 @@
             transition: all 0.3s;
         }
 
-        button:hover {
-            color: var(--dark-sage);
-            letter-spacing: 0.35em;
-            transform: translateY(-2px);
+        button:hover { color: var(--dark-sage); letter-spacing: 0.35em; }
+
+        /* Thank You Message Styling */
+        #status {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: var(--rind-green);
+            display: none; /* Hidden by default */
         }
 
         @keyframes luxuryFadeIn {
@@ -152,11 +143,9 @@
             opacity: 0.4;
         }
 
-        /* Mobile specific adjustments to prevent text overlap */
         @media (max-height: 700px) {
             .container { padding-top: 60px; padding-bottom: 100px; }
             footer { position: relative; margin-top: 40px; bottom: 0; }
-            body { height: auto; overflow-y: auto; }
         }
     </style>
 </head>
@@ -165,7 +154,7 @@
     <div class="container">
         <img src="logo.png" alt="MelonPatch" class="logo">
         
-        <div class="text-group">
+        <div>
             <h1>Stay Fresh. Stay You.</h1>
             <div class="tagline">An Intimate Evolution</div>
         </div>
@@ -177,15 +166,44 @@
         </div>
 
         <div class="email-section">
-            <form action="https://formspree.io/f/xkoqkybk" method="POST">
-                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
-                <input type="text" name="_gotcha" style="display:none">
-                <button type="submit">Join the Inner Circle</button>
+            <form id="contact-form" action="https://formspree.io/f/xkoqkybk" method="POST">
+                <input type="email" name="email" id="email" placeholder="YOUR EMAIL ADDRESS" required>
+                <button type="submit" id="submit-btn">Join the Inner Circle</button>
             </form>
+            <div id="status">Thank you for joining.</div>
         </div>
     </div>
 
     <footer>Est. 2026</footer>
+
+    <script>
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("status");
+        const submitBtn = document.getElementById("submit-btn");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            submitBtn.innerText = "SENDING...";
+            
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = "none";
+                    status.style.display = "block";
+                } else {
+                    submitBtn.innerText = "ERROR. TRY AGAIN.";
+                }
+            }).catch(error => {
+                submitBtn.innerText = "ERROR. TRY AGAIN.";
+            });
+        });
+    </script>
 
 </body>
 </html>
