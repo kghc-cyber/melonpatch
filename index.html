@@ -7,20 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --honeydew-mist: #F8FFF8;   /* Main Background */
-            --rind-green: #86C28B;      /* Accents & Taglines */
-            --dark-sage: #4A5C4C;       /* Primary Text */
-            --sprout-green: #B9FFA3;    /* Interaction Glow */
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+            --honeydew-mist: #F8FFF8;
+            --rind-green: #86C28B;
+            --dark-sage: #4A5C4C;
+            --sprout-green: #B9FFA3;
         }
 
         body {
             margin: 0;
-            padding: 0;
             background-color: var(--honeydew-mist);
             font-family: 'Inter', sans-serif;
             color: var(--dark-sage);
@@ -28,25 +22,25 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden; /* Prevents scrolling on the teaser */
+            overflow: hidden;
         }
 
         .container {
             text-align: center;
             max-width: 600px;
             padding: 20px;
-            opacity: 0; /* Starts hidden for the fade-in effect */
+            opacity: 0;
             animation: luxuryFadeIn 2.5s ease-out forwards;
         }
 
         .logo-wrapper {
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
         }
 
         .logo {
-            max-width: 220px;
+            max-width: 200px;
             height: auto;
-            /* mix-blend-mode helps a PNG blend perfectly into the background color */
+            /* This helps blend the logo into your honeydew background */
             mix-blend-mode: multiply; 
         }
 
@@ -55,35 +49,29 @@
             font-size: clamp(2.5rem, 8vw, 3.5rem);
             font-weight: 400;
             font-style: italic;
-            margin: 0 0 0.5rem 0;
-            letter-spacing: -0.01em;
+            margin: 0;
             color: var(--dark-sage);
         }
 
         .tagline {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 0.5em;
             text-transform: uppercase;
             color: var(--rind-green);
-            margin-bottom: 4rem;
-            font-weight: 400;
+            margin-bottom: 3.5rem;
+            margin-top: 0.5rem;
         }
 
         .clues {
             font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            line-height: 2.4;
-            margin-bottom: 4.5rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            line-height: 2.2;
+            margin-bottom: 4rem;
+            font-style: normal;
         }
 
-        .clues p {
-            margin: 0;
-        }
-
-        /* Minimalist Waitlist Form */
         .email-section {
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
         }
 
@@ -92,23 +80,11 @@
             background: transparent;
             border: none;
             border-bottom: 1px solid var(--rind-green);
-            padding: 12px 0;
+            padding: 10px 0;
             text-align: center;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
             outline: none;
             color: var(--dark-sage);
-            transition: border-color 0.4s ease;
-        }
-
-        input[type="email"]:focus {
-            border-bottom: 1px solid var(--sprout-green);
-        }
-
-        input::placeholder {
-            color: var(--rind-green);
-            opacity: 0.5;
-            letter-spacing: 0.1em;
         }
 
         button {
@@ -117,37 +93,25 @@
             text-transform: uppercase;
             letter-spacing: 0.3em;
             font-size: 0.7rem;
-            margin-top: 25px;
+            margin-top: 20px;
             cursor: pointer;
             color: var(--rind-green);
             font-weight: 600;
-            transition: color 0.3s;
         }
 
-        button:hover {
-            color: var(--dark-sage);
-        }
-
-        /* Elegant Fade-In Animation */
         @keyframes luxuryFadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
             position: absolute;
-            bottom: 40px;
-            font-size: 0.65rem;
+            bottom: 30px;
+            font-size: 0.6rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--rind-green);
-            opacity: 0.4;
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -155,7 +119,10 @@
 
     <div class="container">
         <div class="logo-wrapper">
-            <img src="melonpatch-logo.png" alt="MelonPatch" class="logo">
+            <img src="https://raw.githubusercontent.com/kghc-cyber/melonpatch/main/melonpatch-logo.png" 
+                 alt="MelonPatch" 
+                 class="logo"
+                 onerror="this.src='https://kghc-cyber.github.io/melonpatch/melonpatch-logo.png'">
         </div>
         
         <h1>stay fresh.</h1>
@@ -164,12 +131,12 @@
         <div class="clues">
             <p>Weightless moisture protection.</p>
             <p>Designed for your closest layers.</p>
-            <p>The quiet confidence of a perfect fit.</p>
+            <p>Confidence, redefined.</p>
         </div>
 
         <div class="email-section">
-            <input type="email" placeholder="JOIN THE WAITLIST" aria-label="Email address">
-            <button type="submit">Notify Me</button>
+            <input type="email" placeholder="JOIN THE LIST">
+            <button>Notify Me</button>
         </div>
     </div>
 
