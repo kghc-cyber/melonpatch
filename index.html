@@ -3,79 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MelonPatch | Sophisticated Freshness</title>
+    <title>MelonPatch | Stay Fresh</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
             --honeydew-mist: #F8FFF8;
-            --classic-honeydew: #F0FFF0;
             --rind-green: #86C28B;
-            --dark-sage: #4A5C4C; /* A deeper version of your rind for luxury text */
+            --dark-sage: #4A5C4C;
+            --sprout-green: #B9FFA3;
         }
 
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
             background-color: var(--honeydew-mist);
             font-family: 'Inter', sans-serif;
             color: var(--dark-sage);
             display: flex;
             justify-content: center;
             align-items: center;
-            -webkit-font-smoothing: antialiased;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .wrapper {
+        .content {
             text-align: center;
-            max-width: 700px;
-            padding: 40px;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-out forwards;
+            max-width: 600px;
+            padding: 20px;
         }
 
         .logo {
             max-width: 220px;
-            margin-bottom: 4rem;
-            opacity: 0.9;
-            /* Blends the logo subtly into the airy background */
+            margin-bottom: 3.5rem;
+            /* Ensures a clean look if there's any stray background in the PNG */
             mix-blend-mode: multiply;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 400;
             font-style: italic;
-            margin: 0 0 1.5rem 0;
-            letter-spacing: -0.02em;
+            margin: 0 0 0.5rem 0;
             color: var(--dark-sage);
+            letter-spacing: -0.01em;
         }
 
         .tagline {
-            font-size: 1.1rem;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            font-size: 0.7rem;
             color: var(--rind-green);
-        }
-
-        .hints {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            line-height: 1.8;
             margin-bottom: 4rem;
-            color: var(--dark-sage);
+            font-weight: 400;
         }
 
-        .hints p {
-            margin: 10px 0;
-            opacity: 0.8;
+        .clues {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            line-height: 2.2;
+            margin-bottom: 4.5rem;
+            font-style: normal;
+            opacity: 0.85;
         }
 
-        /* Minimalist Email Entry */
-        .input-group {
-            position: relative;
-            max-width: 400px;
+        .email-capture {
+            max-width: 300px;
             margin: 0 auto;
         }
 
@@ -84,81 +78,73 @@
             background: transparent;
             border: none;
             border-bottom: 1px solid var(--rind-green);
-            padding: 15px 0;
+            padding: 12px 0;
+            text-align: center;
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
             outline: none;
             color: var(--dark-sage);
-            text-align: center;
+            font-size: 0.9rem;
+            transition: border-color 0.4s;
         }
 
-        input::placeholder {
-            color: var(--rind-green);
-            opacity: 0.5;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.8rem;
+        input[type="email"]:focus {
+            border-bottom: 1px solid var(--sprout-green);
         }
 
         button {
             background: transparent;
             border: none;
-            color: var(--dark-sage);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.75rem;
-            font-weight: 600;
+            letter-spacing: 0.3em;
+            font-size: 0.7rem;
             margin-top: 25px;
             cursor: pointer;
-            padding: 10px;
-            transition: opacity 0.3s;
+            color: var(--rind-green);
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
         button:hover {
-            opacity: 0.6;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 40px;
-            font-size: 0.7rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            opacity: 0.5;
-        }
-
-        /* Subtle Fade In Animation */
-        .wrapper {
-            animation: fadeIn 2s ease-in-out;
+            color: var(--dark-sage);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--rind-green);
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <img src="Gemini_Generated_Image_sba56vsba56vsba5.jpg" alt="MelonPatch" class="logo">
+    <div class="content">
+        <img src="melonpatch-logo.png" alt="MelonPatch" class="logo">
         
         <h1>stay fresh.</h1>
-        <div class="tagline">An Intimate Evolution</div>
+        <div class="tagline">The Invisible Essential</div>
 
-        <div class="hints">
-            <p>Weightless. Invisible. Yours.</p>
-            <p>The quiet confidence of a perfect layer.</p>
-            <p>Coming soon to your essentials drawer.</p>
+        <div class="clues">
+            <p>A weightless embrace for your closest layers.</p>
+            <p>Invisible moisture protection, designed by women.</p>
+            <p>The quiet confidence of all-day comfort.</p>
         </div>
 
-        <div class="input-group">
-            <input type="email" placeholder="Request Early Access">
+        <div class="email-capture">
+            <input type="email" placeholder="JOIN THE LIST">
             <button>Notify Me</button>
         </div>
     </div>
 
-    <footer>Est. 2026</footer>
+    <footer>Coming 2026</footer>
 
 </body>
 </html>
