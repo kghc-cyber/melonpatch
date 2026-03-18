@@ -3,129 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MelonPatch | Stay Fresh</title>
+    <title>MelonPatch | Sophisticated Freshness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-teal: #69a39b; /* Matches your logo color */
-            --soft-white: #f9fbfb;
-            --text-gray: #4a5553;
+            --honeydew-mist: #F8FFF8;
+            --classic-honeydew: #F0FFF0;
+            --rind-green: #86C28B;
+            --dark-sage: #4A5C4C; /* A deeper version of your rind for luxury text */
         }
 
         body, html {
-            height: 100%;
             margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--soft-white);
-            color: var(--text-gray);
+            padding: 0;
+            height: 100%;
+            background-color: var(--honeydew-mist);
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-sage);
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
+        .wrapper {
             text-align: center;
-            padding: 2rem;
-            max-width: 600px;
+            max-width: 700px;
+            padding: 40px;
         }
 
         .logo {
-            width: 280px; /* Adjust based on your file */
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 5px 15px rgba(105, 163, 155, 0.2));
+            max-width: 220px;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            /* Blends the logo subtly into the airy background */
+            mix-blend-mode: multiply;
         }
 
-        .headline {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-            color: var(--brand-teal);
-        }
-
-        .subtext {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
             font-style: italic;
+            margin: 0 0 1.5rem 0;
+            letter-spacing: -0.02em;
+            color: var(--dark-sage);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            color: var(--rind-green);
+        }
+
+        .hints {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            color: var(--dark-sage);
+        }
+
+        .hints p {
+            margin: 10px 0;
             opacity: 0.8;
         }
 
-        /* Mysterious Clue Box */
-        .clue-box {
-            border: 1px solid rgba(105, 163, 155, 0.3);
-            padding: 1.5rem;
-            border-radius: 20px;
-            background: white;
-            margin-bottom: 2rem;
-        }
-
-        .clue-box p {
-            margin: 0.5rem 0;
-            font-weight: 500;
-        }
-
-        .email-signup {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
+        /* Minimalist Email Entry */
+        .input-group {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         input[type="email"] {
-            padding: 12px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 30px;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--rind-green);
+            padding: 15px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
             outline: none;
-            width: 250px;
+            color: var(--dark-sage);
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: var(--rind-green);
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
         }
 
         button {
-            background-color: var(--brand-teal);
-            color: white;
+            background: transparent;
             border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: bold;
+            color: var(--dark-sage);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 25px;
             cursor: pointer;
-            transition: 0.3s;
+            padding: 10px;
+            transition: opacity 0.3s;
         }
 
         button:hover {
-            background-color: #568a83;
-            transform: translateY(-2px);
+            opacity: 0.6;
         }
 
         footer {
-            position: absolute;
-            bottom: 2rem;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            position: fixed;
+            bottom: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        /* Subtle Fade In Animation */
+        .wrapper {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="Gemini_Generated_Image_sba56vsba56vsba5.jpg" alt="MelonPatch Logo" class="logo">
+    <div class="wrapper">
+        <img src="Gemini_Generated_Image_sba56vsba56vsba5.jpg" alt="MelonPatch" class="logo">
         
-        <div class="headline">Stay Fresh.</div>
-        
-        <p class="subtext">The layer you didn't know you were missing.</p>
+        <h1>stay fresh.</h1>
+        <div class="tagline">An Intimate Evolution</div>
 
-        <div class="clue-box">
-            <p>☁️ Invisible comfort.</p>
-            <p>💧 Moisture-wicking magic.</p>
-            <p>🤫 Your best kept secret.</p>
+        <div class="hints">
+            <p>Weightless. Invisible. Yours.</p>
+            <p>The quiet confidence of a perfect layer.</p>
+            <p>Coming soon to your essentials drawer.</p>
         </div>
 
-        <div class="email-signup">
-            <input type="email" placeholder="Enter your email...">
-            <button>Get Early Access</button>
+        <div class="input-group">
+            <input type="email" placeholder="Request Early Access">
+            <button>Notify Me</button>
         </div>
     </div>
 
-    <footer>Coming Soon</footer>
+    <footer>Est. 2026</footer>
 
 </body>
 </html>
