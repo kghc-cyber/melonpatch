@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MelonPatch | Stay Fresh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --honeydew-mist: #F8FFF8;
-            --rind-green: #86C28B;
-            --dark-sage: #4A5C4C;
-            --sprout-green: #B9FFA3;
+            --honeydew-mist: #F8FFF8;   /* Main Background */
+            --rind-green: #86C28B;      /* Accents & Taglines */
+            --dark-sage: #4A5C4C;       /* Primary Text */
+            --sprout-green: #B9FFA3;    /* Interaction Glow */
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             margin: 0;
+            padding: 0;
             background-color: var(--honeydew-mist);
             font-family: 'Inter', sans-serif;
             color: var(--dark-sage);
@@ -22,38 +28,42 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            overflow: hidden; /* Prevents scrolling on the teaser */
         }
 
-        .content {
+        .container {
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 2.5s ease-out forwards;
             max-width: 600px;
             padding: 20px;
+            opacity: 0; /* Starts hidden for the fade-in effect */
+            animation: luxuryFadeIn 2.5s ease-out forwards;
+        }
+
+        .logo-wrapper {
+            margin-bottom: 3.5rem;
         }
 
         .logo {
             max-width: 220px;
-            margin-bottom: 3.5rem;
-            /* Ensures a clean look if there's any stray background in the PNG */
-            mix-blend-mode: multiply;
+            height: auto;
+            /* mix-blend-mode helps a PNG blend perfectly into the background color */
+            mix-blend-mode: multiply; 
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             font-weight: 400;
             font-style: italic;
             margin: 0 0 0.5rem 0;
-            color: var(--dark-sage);
             letter-spacing: -0.01em;
+            color: var(--dark-sage);
         }
 
         .tagline {
+            font-size: 0.75rem;
             letter-spacing: 0.5em;
             text-transform: uppercase;
-            font-size: 0.7rem;
             color: var(--rind-green);
             margin-bottom: 4rem;
             font-weight: 400;
@@ -62,14 +72,18 @@
         .clues {
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
-            line-height: 2.2;
+            line-height: 2.4;
             margin-bottom: 4.5rem;
-            font-style: normal;
-            opacity: 0.85;
+            opacity: 0.9;
         }
 
-        .email-capture {
-            max-width: 300px;
+        .clues p {
+            margin: 0;
+        }
+
+        /* Minimalist Waitlist Form */
+        .email-section {
+            max-width: 320px;
             margin: 0 auto;
         }
 
@@ -81,14 +95,20 @@
             padding: 12px 0;
             text-align: center;
             font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
             outline: none;
             color: var(--dark-sage);
-            font-size: 0.9rem;
-            transition: border-color 0.4s;
+            transition: border-color 0.4s ease;
         }
 
         input[type="email"]:focus {
             border-bottom: 1px solid var(--sprout-green);
+        }
+
+        input::placeholder {
+            color: var(--rind-green);
+            opacity: 0.5;
+            letter-spacing: 0.1em;
         }
 
         button {
@@ -108,43 +128,52 @@
             color: var(--dark-sage);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Elegant Fade-In Animation */
+        @keyframes luxuryFadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
         footer {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             font-size: 0.65rem;
-            letter-spacing: 0.5em;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--rind-green);
-            opacity: 0.5;
+            opacity: 0.4;
         }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <img src="melonpatch-logo.png" alt="MelonPatch" class="logo">
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="melonpatch-logo.png" alt="MelonPatch" class="logo">
+        </div>
         
         <h1>stay fresh.</h1>
-        <div class="tagline">The Invisible Essential</div>
+        <div class="tagline">An Intimate Evolution</div>
 
         <div class="clues">
-            <p>A weightless embrace for your closest layers.</p>
-            <p>Invisible moisture protection, designed by women.</p>
-            <p>The quiet confidence of all-day comfort.</p>
+            <p>Weightless moisture protection.</p>
+            <p>Designed for your closest layers.</p>
+            <p>The quiet confidence of a perfect fit.</p>
         </div>
 
-        <div class="email-capture">
-            <input type="email" placeholder="JOIN THE LIST">
-            <button>Notify Me</button>
+        <div class="email-section">
+            <input type="email" placeholder="JOIN THE WAITLIST" aria-label="Email address">
+            <button type="submit">Notify Me</button>
         </div>
     </div>
 
-    <footer>Coming 2026</footer>
+    <footer>Est. 2026</footer>
 
 </body>
 </html>
