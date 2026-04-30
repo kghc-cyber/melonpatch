@@ -39,10 +39,14 @@
         .logo {
             max-width: 180px;
             height: auto;
-            mix-blend-mode: multiply; 
+            mix-blend-mode: multiply;
+            transition: opacity 0.3s ease;
         }
 
-        /* Solid Green Button Styling */
+        .logo:hover {
+            opacity: 0.8;
+        }
+
         .btn-solid {
             display: inline-block;
             background-color: var(--rind-green);
@@ -68,7 +72,9 @@
 <body class="flex flex-col items-center">
 
     <header class="pt-[50px] pb-[20px] w-full flex justify-center">
-        <img src="https://melonpatch.co/logo.png" alt="MELONPATCH" class="logo">
+        <a href="https://melonpatch.co">
+            <img src="https://melonpatch.co/logo.png" alt="MELONPATCH" class="logo">
+        </a>
     </header>
 
     <main class="max-w-[600px] w-[90%] flex flex-col items-center text-center pb-24">
